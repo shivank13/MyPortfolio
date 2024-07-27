@@ -5,7 +5,7 @@ import { FaInstagram } from 'react-icons/fa'
 import logo from '../assets/kevinRushLogo.png'
 const NavBar = () => {
   return (
-    <nav className='mb-20 flex items-center justify-between py-6'>
+    <nav className='mb-16 flex items-center justify-between py-6'>
       <div className='flex flex-shrink-0 items-center'>
           <img className='mx-2 w-10' src={logo} alt="logo"/>
       </div>
