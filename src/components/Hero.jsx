@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { HERO_CONTENT } from "../constants/data";
 import ProPic from "../assets/kevinRushProfile.png";
 import { motion } from "framer-motion";
 import { HiDownload } from "react-icons/hi";
+import { ThreeDots } from "react-loader-spinner";
 
 const container = (delay) => ({
   hidden: { x: -100, opacity: 0 },
@@ -14,6 +15,24 @@ const container = (delay) => ({
 });
 
 const Hero = () => {
+  const [loading, setLoading] = useState(false);
+  const pdfUrl =
+    "https://drive.google.com/uc?export=download&id=1_7R6vFF39DHjcqN97UkWdfy0jcfEr4_W";
+
+  const handleDownloadClick = async () => {
+    setLoading(true);
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.setAttribute("download", "ShivankSharma_CV.pdf");
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Wait for a while assuming download will be initiated by now
+    setTimeout(() => setLoading(false), 3000);
+  };
+
   return (
     <div className="border-b border-neutral-900 pb-4 lg:mb-35">
       <div className="flex flex-wrap">
@@ -38,17 +57,30 @@ const Hero = () => {
               Full Stack Developer
             </motion.span>
             <motion.div
-            variants={container(0.5)}
-            initial="hidden"
-            animate="visible">
-            <a
-              href="/ShivankSharma.pdf"
-              download="ShivankSharma_CV.pdf"
-              className="flex items-center"
+              variants={container(0.5)}
+              initial="hidden"
+              animate="visible"
+              className="mt-2"
             >
-              <HiDownload className="mr-2 text-xl" />{" "}
-              <span className="text-xl">Download CV</span>
-            </a>
+              <button
+                onClick={handleDownloadClick}
+                className="flex items-center"
+                disabled={loading}
+              >
+                {loading ? (
+                  <ThreeDots
+                    type="ThreeDots"
+                    color="#a855f7"
+                    height={20}
+                    width={30}
+                  />
+                ) : (
+                  <>
+                    <HiDownload className="mr-2 text-xl" />
+                    <span className="text-xl">Download CV</span>
+                  </>
+                )}
+              </button>
             </motion.div>
             <motion.p
               variants={container(1)}
