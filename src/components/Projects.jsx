@@ -9,7 +9,7 @@ const Projects = () => {
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="my-20 text-center text-4xl"
+        className="my-16 text-center text-4xl"
       >
         Projects
       </motion.h1>

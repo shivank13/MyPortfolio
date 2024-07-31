@@ -9,7 +9,7 @@ const Experience = () => {
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="my-20 text-center text-4xl"
+        className="my-16 text-center text-4xl"
       >
         Experience
       </motion.h1>
@@ -28,7 +28,7 @@ const Experience = () => {
               initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 1 }}
-              className="w-full max-w-xl lg:w-3/4"
+              className="w-full max-w-xl lg:w-3/4 flex flex-wrap"
             >
               <h6 className="mb-2 font-semibold">
                 {experience.role} -{" "}
