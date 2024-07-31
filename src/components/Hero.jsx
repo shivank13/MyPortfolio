@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { HERO_CONTENT } from "../constants/data";
-import ProPic from "../assets/kevinRushProfile.png";
+import ProPic from "../assets/propic.jpg";
 import { motion } from "framer-motion";
 import { HiDownload } from "react-icons/hi";
 import { ThreeDots } from "react-loader-spinner";
@@ -93,8 +93,9 @@ const Hero = () => {
           </div>
         </div>
         <div className="w-full lg:w-1/2 lg:p-10">
-          <div className="flex justify-center">
+          <div className="flex justify-center w-">
             <motion.img
+              className="shadow-black rounded-2xl"
               initial={{ x: 100, opacity: 0 }}
               animate={{
                 x: 0,
